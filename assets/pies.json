@@ -1,10 +1,10 @@
 [
-  { "id": 1, "name": "images/asset1.jpg" },
-  { "id": 2, "name": "images/asset2.jpg" },
-  { "id": 3, "name": "images/asset3.jpg" },
-  { "id": 4, "name": "images/asset4.jpg" },
-  { "id": 5, "name": "images/asset5.jpg" },
-  { "id": 6, "name": "images/asset6.jpg" },
-  { "id": 7, "name": "images/asset7.jpg" },
-  { "id": 8, "name": "images/asset8.jpg" }
+  { "id": 1, "name": "Images1" },
+  { "id": 2, "name": "Images2" },
+  { "id": 3, "name": "Images3" },
+  { "id": 4, "name": "Images4" },
+  { "id": 5, "name": "Images5" },
+  { "id": 6, "name": "Images6" },
+  { "id": 7, "name": "Images7" },
+  { "id": 8, "name": "Images8" }
 ]

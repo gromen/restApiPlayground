@@ -20,9 +20,14 @@ router.get("/", function (req, res, next) {
   );
 });
 
-router.get("/:id", function (req, res, next) {
-  pieRepo.getById(
-    req.params.id,
+router.get("/search", function (req, res, next) {
+  let searchObject = {
+    id: Number(req.query.id),
+    name: req.query.name,
+  };
+
+  pieRepo.search(
+    searchObject,
     function (data) {
       if (data) {
         res.status(200).json({
@@ -35,10 +40,10 @@ router.get("/:id", function (req, res, next) {
         res.status(404).json({
           status: 404,
           statusText: "not found",
-          message: `the pie ${req.params.id} is not found`,
+          message: `the pie ${req.query.id} ssasis not found`,
           error: {
             code: "NOT_FOUND",
-            message: `the pie ${req.params.id} is not found`,
+            message: `the pie ${req.query.id} is not found`,
           },
         });
       }
@@ -49,14 +54,9 @@ router.get("/:id", function (req, res, next) {
   );
 });
 
-router.get("/search", function (req, res, next) {
-  let searchObject = {
-    id: req.query.id,
-    name: req.query.name,
-  };
-
-  pieRepo.search(
-    searchObject,
+router.get("/:id", function (req, res, next) {
+  pieRepo.getById(
+    req.params.id,
     function (data) {
       if (data) {
         res.status(200).json({
