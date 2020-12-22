@@ -1,0 +1,10 @@
+[
+  { "id": 1, "name": "images/asset1.jpg" },
+  { "id": 2, "name": "images/asset2.jpg" },
+  { "id": 3, "name": "images/asset3.jpg" },
+  { "id": 4, "name": "images/asset4.jpg" },
+  { "id": 5, "name": "images/asset5.jpg" },
+  { "id": 6, "name": "images/asset6.jpg" },
+  { "id": 7, "name": "images/asset7.jpg" },
+  { "id": 8, "name": "images/asset8.jpg" }
+]
