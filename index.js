@@ -1,11 +1,14 @@
 const express = require("express");
 const app = express();
+let cors = require("cors");
 let errorHelper = require("./helpers/errorHelpers");
 
 let pieRepo = require("./pieRepo");
 let router = express.Router();
 
 app.use(express.json());
+
+app.use(cors());
 
 router.get("/", function (req, res, next) {
   pieRepo.get(
