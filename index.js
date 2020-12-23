@@ -4,6 +4,8 @@ const app = express();
 let pieRepo = require("./pieRepo");
 let router = express.Router();
 
+app.use(express.json());
+
 router.get("/", function (req, res, next) {
   pieRepo.get(
     function (data) {
@@ -64,6 +66,23 @@ router.get("/:id", function (req, res, next) {
           },
         });
       }
+    },
+    function (err) {
+      next(err);
+    }
+  );
+});
+
+router.post("/", function (req, res, next) {
+  pieRepo.insert(
+    req.body,
+    function (data) {
+      res.status(201).json({
+        status: 201,
+        statusText: "Created",
+        message: "new added pie",
+        data: data,
+      });
     },
     function (err) {
       next(err);
