@@ -26,13 +26,16 @@ let pieRepo = {
       if (err) {
         reject(err);
       } else {
+        let pies = JSON.parse(data);
+
         if (searchObject) {
-          let pies = JSON.parse(data);
           pies = pies.filter(
-            (p) => p.id === searchObject.id && p.name.toLowerCase().indexOf(searchObject.name.toLowerCase()) >= 0
+            (p) =>
+              (searchObject.id ? p.id === searchObject.id : true) &&
+              (searchObject.name ? p.name.toLowerCase().indexOf(searchObject.name.toLowerCase()) >= 0 : true)
           );
-          resolve(pies);
         }
+        resolve(pies);
       }
     });
   },

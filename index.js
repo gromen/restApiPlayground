@@ -22,31 +22,19 @@ router.get("/", function (req, res, next) {
 
 router.get("/search", function (req, res, next) {
   let searchObject = {
-    id: Number(req.query.id),
+    id: req.query.id,
     name: req.query.name,
   };
 
   pieRepo.search(
     searchObject,
     function (data) {
-      if (data) {
-        res.status(200).json({
-          status: 200,
-          statusText: "OK",
-          message: "all pies retrieved",
-          data: data,
-        });
-      } else {
-        res.status(404).json({
-          status: 404,
-          statusText: "not found",
-          message: `the pie ${req.query.id} ssasis not found`,
-          error: {
-            code: "NOT_FOUND",
-            message: `the pie ${req.query.id} is not found`,
-          },
-        });
-      }
+      res.status(200).json({
+        status: 200,
+        statusText: "OK",
+        message: "all pies retrieved",
+        data: data,
+      });
     },
     function (err) {
       next(err);
