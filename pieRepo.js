@@ -56,5 +56,48 @@ let pieRepo = {
       }
     });
   },
+  update: function (newData, id, resolve, reject) {
+    fs.readFile(FILE_NAME, function (err, data) {
+      if (err) {
+        reject(err);
+      } else {
+        let pies = JSON.parse(data);
+        let pie = pies.find((p) => p.id == id);
+
+        if (pie) {
+          Object.assign(pie, newData);
+          fs.writeFile(FILE_NAME, JSON.stringify(pies), function (err) {
+            if (err) {
+              reject(err);
+            } else {
+              resolve(newData);
+            }
+          });
+        }
+      }
+    });
+  },
+  delete: function (id, resolve, reject) {
+    console.log(id);
+    fs.readFile(FILE_NAME, function (err, data) {
+      if (err) {
+        reject(err);
+      } else {
+        let pies = JSON.parse(data);
+        let pie = pies.findIndex((p) => p.id == id);
+
+        if (pie != -1) {
+          pies.splice(pie, 1);
+          fs.writeFile(FILE_NAME, JSON.stringify(pies), function (err) {
+            if (err) {
+              reject(err);
+            } else {
+              resolve(data);
+            }
+          });
+        }
+      }
+    });
+  },
 };
 module.exports = pieRepo;

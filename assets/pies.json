@@ -1,11 +1,8 @@
 [
-  { "id": 1, "name": "Images1" },
   { "id": 2, "name": "Images2" },
   { "id": 3, "name": "Images3" },
   { "id": 4, "name": "Images4" },
   { "id": 5, "name": "Images5" },
   { "id": 6, "name": "Images6" },
-  { "id": 7, "name": "Images7" },
-  { "id": 8, "name": "Images8" },
-  { "id": 9, "name": "Images9" }
+  { "id": 7, "name": "Images7" }
 ]
