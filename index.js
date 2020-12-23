@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+let errorHelper = require("./helpers/errorHelpers");
 
 let pieRepo = require("./pieRepo");
 let router = express.Router();
@@ -184,6 +185,11 @@ router.patch("/:id", function (req, res, next) {
 });
 
 app.use("/api/", router);
+
+app.use(errorHelper.logErrorToConsole);
+app.use(errorHelper.logErrorToFile);
+app.use(errorHelper.clientErrorHandler);
+app.use(errorHelper.errorHandler);
 
 var server = app.listen(5000, function () {
   console.log("Node server is running on http://localhost:5000...");
