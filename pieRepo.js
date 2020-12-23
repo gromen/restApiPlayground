@@ -78,7 +78,6 @@ let pieRepo = {
     });
   },
   delete: function (id, resolve, reject) {
-    console.log(id);
     fs.readFile(FILE_NAME, function (err, data) {
       if (err) {
         reject(err);

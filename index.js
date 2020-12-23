@@ -152,6 +152,37 @@ router.delete("/:id", function (req, res, next) {
   );
 });
 
+router.patch("/:id", function (req, res, next) {
+  pieRepo.getById(
+    req.params.id,
+    function (data) {
+      if (data) {
+        pieRepo.update(req.body, req.params.id, function (data) {
+          res.status(200).json({
+            status: 200,
+            statusText: "OK",
+            message: `Pie ${req.params.id} patched.`,
+            data: data,
+          });
+        });
+      } else {
+        res.status(404).json({
+          status: 404,
+          statusText: "not found",
+          message: `the pie ${req.params.id} is not found`,
+          error: {
+            code: "NOT_FOUND",
+            message: `the pie ${req.params.id} is not found`,
+          },
+        });
+      }
+    },
+    function (err) {
+      next(err);
+    }
+  );
+});
+
 app.use("/api/", router);
 
 var server = app.listen(5000, function () {
